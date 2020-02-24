@@ -10,17 +10,9 @@ Install
 
 React
 
-`import {MdAnnotation} from "react-heroicons/dist/outline-md"`
+`import Annotation from "react-heroicons/dist/MdAnnotation"`
+`import { MdAnnotation } from "react-heroicons/dist"`
 
-Or
-`import MdAnnotation from "react-heroicons/dist/outline-md/MdAnnotation"`
+Alot may change later, import will change to
 
-Alot may change later, import will change from
-
-`import MdAnnotation from "react-heroicons/dist/outline-md"`
-
-To
-
-`import {Annotation} from "react-heroicons/outline/md"`
-
-`import Annotation from "react-heroicons/outline/md/Annotation"`
+`import Annotation from "react-heroicons/outline-md/Annotation"`
