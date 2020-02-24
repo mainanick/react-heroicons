@@ -1,10 +1,14 @@
 {
   "name": "react-heroicons",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Heroicons. A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:web": "npx @svgr/cli -d dist --keep-existing src",
+    "build:native": "npx @svgr/cli --native -d dist/native --keep-existing src",
+    "build": "rimraf dist && npm run build:web && npm run build:native",
+    "lint": "prettier --write ./dist/**/*.{ts,tsx,js,jsx}"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,19 @@
   "bugs": {
     "url": "https://github.com/mainanick/react-heroicons/issues"
   },
-  "homepage": "https://github.com/mainanick/react-heroicons#readme"
+  "homepage": "https://github.com/mainanick/react-heroicons#readme",
+  "devDependencies": {
+    "@svgr/cli": "^5.2.0",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
 }
