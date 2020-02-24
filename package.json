@@ -9,7 +9,6 @@
     "build:react": "npm run build:web && npm run build:native",
     "build": "rimraf dist && npm run build:react && parcel build reactsrc/**/*.js dist --no-source-maps --no-content-hash",
     "prepublishOnly": "npm run build",
-    "lint": "prettier --write ./dist/**/*.{ts,tsx,js,jsx}"
   },
   "repository": {
     "type": "git",
@@ -41,10 +40,5 @@
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0",
     "react-native-svg": "*"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   }
 }
