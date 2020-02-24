@@ -2,13 +2,13 @@
   "name": "react-heroicons",
   "version": "0.0.3",
   "description": "Heroicons. A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:web": "npx @svgr/cli -d dist --keep-existing src",
-    "build:native": "npx @svgr/cli --native -d dist/native --keep-existing src",
-    "build": "rimraf dist && npm run build:web && npm run build:native",
-    "prepublish": "npm run build",
+    "build:web": "npx @svgr/cli -d reactsrc --keep-existing src",
+    "build:native": "npx @svgr/cli --native -d reactsrc/native --keep-existing src",
+    "build:react": "npm run build:web && npm run build:native",
+    "build": "rimraf dist && npm run build:react && parcel build reactsrc/**/*.js dist --no-source-maps --no-content-hash",
+    "prepublishOnly": "npm run build",
     "lint": "prettier --write ./dist/**/*.{ts,tsx,js,jsx}"
   },
   "repository": {
@@ -25,13 +25,22 @@
   },
   "homepage": "https://github.com/mainanick/react-heroicons#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@svgr/cli": "^5.2.0",
+    "babel-loader": "^8.0.6",
     "husky": "^4.2.3",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-externals": "^0.3.1",
     "prettier": "^1.19.1",
+    "react-native-svg": "^11.0.1",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "react-native-svg": "*"
   },
   "husky": {
     "hooks": {
