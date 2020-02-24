@@ -1,6 +1,6 @@
 {
   "name": "react-heroicons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Heroicons. A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "build:web": "npx @svgr/cli -d dist --keep-existing src",
     "build:native": "npx @svgr/cli --native -d dist/native --keep-existing src",
     "build": "rimraf dist && npm run build:web && npm run build:native",
+    "prepublish": "npm run build",
     "lint": "prettier --write ./dist/**/*.{ts,tsx,js,jsx}"
   },
   "repository": {
